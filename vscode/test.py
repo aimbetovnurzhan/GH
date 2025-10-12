@@ -17,4 +17,4 @@ z=sum_two_numbers(9,7.5)
 print(z)
 # we have to count 21*21 + 46*47
 
-print(sum_two_numbers(multiply_two_numbers(21,21),multiply_two_numbers(46,47)))
+print(sum_two_numbers(multiply_two_numbers(20,21),multiply_two_numbers(46,47)))
