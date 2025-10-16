@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG_FILE="/c/Users/NRG/Gitlog.txt"
-echo "$(date): запуск" >> LOG_FILE
+echo "$(date '+%Y-%m-%d_%H:%M:%S'): запуск" >> LOG_FILE
 cd /c/Users/NRG/GH
 
 if [ -n "$(git status --porcelain)" ]; then
@@ -18,12 +18,12 @@ if [ -n "$(git status --porcelain)" ]; then
         exit 1
     fi
     if git push origin main >> "$LOG_FILE" 2>&1; then
-        echo "$(date): Изменения отправлены в GitHub" >> "$LOG_FILE"
+        echo "$(date '+%Y-%m-%d_%H:%M:%S'): Изменения отправлены в GitHub" >> "$LOG_FILE"
     else
-        echo "$(date): ОШИБКА при отправке" >> "$LOG_FILE"
+        echo "$(date '+%Y-%m-%d_%H:%M:%S'): ОШИБКА при отправке" >> "$LOG_FILE"
     fi
 else
-    echo "$(date): Изменений нет" >> LOG_FILE
+    echo "$(date '+%Y-%m-%d_%H:%M:%S'): Изменений нет" >> LOG_FILE
 fi
 
 echo "---" >> LOG_FILE
