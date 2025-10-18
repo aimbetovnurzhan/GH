@@ -1,5 +1,0 @@
-Hello world
-test1
-trying to add something to my text file
-something else
-
