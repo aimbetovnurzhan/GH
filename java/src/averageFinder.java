@@ -19,3 +19,5 @@ public class AverageFinder {
         return result / input.length; // in math you can't divide by 0
     }
 }
+
+@test
