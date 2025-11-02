@@ -1,8 +1,7 @@
-public class calc {
-
-//    package aliya.calculator;
-
+package test.calculator;
 import java.util.stream.DoubleStream;
+
+public class calc {
 
     public class Calculator {
         public static double add(double... numbers) {
