@@ -27,7 +27,7 @@ def file_parser(file_name):
                  .split()
         word_cnt = {}
         for word in text:
-            if word.isdigit() is False and len(word) == 2:
+            if word.isdigit() is False: #and len(word) == 2:
                 word_cnt[word] =  word_cnt.get(word, 0) + 1
     return word_cnt
 

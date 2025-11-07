@@ -27,3 +27,6 @@ else
 fi
 
 echo "---" >> "$LOG_FILE"
+
+echo "Количество уникальных дней с коммитами:"
+git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
