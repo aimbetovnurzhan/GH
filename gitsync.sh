@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Количество уникальных дней с коммитами:"
+git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
+
 LOG_FILE="/c/Users/NRG/Gitlog.txt"
 echo "$(date '+%Y-%m-%d_%H:%M:%S'): запуск" >> "$LOG_FILE"
 cd /c/Users/NRG/GH
@@ -28,5 +31,3 @@ fi
 
 echo "---" >> "$LOG_FILE"
 
-echo "Количество уникальных дней с коммитами:"
-git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
