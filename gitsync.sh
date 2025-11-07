@@ -7,6 +7,9 @@ cd /c/Users/NRG/GH
 echo "Количество уникальных дней с коммитами:"
 git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
 
+echo "Количество коммитов за сегодня:"
+git log --since=midnight --oneline | wc -l
+
 if [ -n "$(git status --porcelain)" ]; then
     if git add . >> "$LOG_FILE" 2>&1; then
         echo "Файлы добавлены"
@@ -30,7 +33,3 @@ else
 fi
 
 echo "---" >> "$LOG_FILE"
-
-echo
-read -p "Нажми Enter, чтобы закрыть окно..."
-
