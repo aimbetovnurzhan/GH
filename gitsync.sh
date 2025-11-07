@@ -31,3 +31,6 @@ fi
 
 echo "---" >> "$LOG_FILE"
 
+echo
+read -p "Нажми Enter, чтобы закрыть окно..."
+
