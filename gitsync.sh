@@ -4,12 +4,6 @@ LOG_FILE="/c/Users/NRG/Gitlog.txt"
 echo "$(date '+%Y-%m-%d_%H:%M:%S'): запуск" >> "$LOG_FILE"
 cd /c/Users/NRG/GH
 
-echo "Количество уникальных дней с коммитами:"
-git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
-
-echo "Количество коммитов за сегодня:"
-git log --since=midnight --oneline | wc -l
-
 if [ -n "$(git status --porcelain)" ]; then
     if git add . >> "$LOG_FILE" 2>&1; then
         echo "Файлы добавлены"
@@ -31,5 +25,11 @@ if [ -n "$(git status --porcelain)" ]; then
 else
     echo "$(date '+%Y-%m-%d_%H:%M:%S'): Изменений нет" >> "$LOG_FILE"
 fi
+
+echo "Количество уникальных дней с коммитами:"  >> "$LOG_FILE"
+git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l  >> "$LOG_FILE"
+
+echo "Количество коммитов за сегодня:"  >> "$LOG_FILE"
+git log --since=midnight --oneline | wc -l  >> "$LOG_FILE"
 
 echo "---" >> "$LOG_FILE"
