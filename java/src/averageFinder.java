@@ -10,6 +10,7 @@ public class AverageFinder {
             return 0;
         }
 
+        
         int result = 0;
 
         for (String s : input) {
