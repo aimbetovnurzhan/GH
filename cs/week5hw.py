@@ -1,9 +1,17 @@
 import random as rd
 
+answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 3: "Little high", 4: "Too high", }
+
 def check_attempt(guessing_number, attempt):
+    if attempt == guessing_number:
+        return 0
+    elif attempt < guessing_number:
+        if attempt - guessing_number < -5:
+            return 1
+
     if attempt > guessing_number:
         if attempt - guessing_number > 5:
-            return
+            return 
             print("Too high")
         else:
             print("Little high")
