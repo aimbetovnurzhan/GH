@@ -1,13 +1,21 @@
 import random as rd
 
-answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 3: "Little high", 4: "Too high", }
+answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 1: "Little high", 2: "Too high", }
 
-def check_attempt(guessing_number, attempt):
+def check_attempt(guessing_number, attempt): # Function returns code of result
     if attempt == guessing_number:
         return 0
     elif attempt < guessing_number:
         if attempt - guessing_number < -5:
+            return -2
+        else:
+            return -1
+    else:
+        if attempt - guessing_number <= 5:
             return 1
+        else:
+            return 2
+
 
     if attempt > guessing_number:
         if attempt - guessing_number > 5:
