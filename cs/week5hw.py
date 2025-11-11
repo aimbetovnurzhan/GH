@@ -1,5 +1,6 @@
 import random as rd
 
+
 a = rd.randint(1, 100)
 attempts = 5
 print("Gues the number, you have %d attempts to guess it" %(attempts)) #, a)
