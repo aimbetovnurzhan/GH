@@ -4,20 +4,20 @@ import random as rd
 
 guessing_number = rd.randint(1, 100)
 answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 1: "Little high", 2: "Too high", }
+# errors = {}
 attempts_cnt = 5
 
-def check_user_attempts_count(attempts_cnt, user_input):
+def check_users_attempts_count(attempts_cnt, user_input):
     resp_msg = False    # Means that user selected value by default
     if user_input.isdigit():
-        if 0 < user_input <= 10:
+        if 0 < int(user_input) <= 10:
             resp_msg = True # User entered own attempts count
-            attempts_cnt = user_input
+            attempts_cnt = int(user_input)
         else:
             resp_msg = "Number should be more than 0, less or equal to 10"
     elif user_input != "":
         resp_msg = "You should enter a number"
     return attempts_cnt, resp_msg
-
 
 def check_attempt(guessing_number, attempt): # Function returns code of result
     if attempt < guessing_number:
@@ -37,15 +37,17 @@ def main():
     print("Welcome to guessing number game, do you want to enter attempts count?")
 
     while True: #checking user input
-        user_input = input("Enter attempts count (maximum is 10) or press enter to continue with %d attempts" %attempts_cnt)
-        checking_result = check_user_attempts_count(attempts_cnt, user_input)
+        global attempts_cnt
+        user_input = input("Enter attempts count (between 1 and 10) or press enter to continue with %d attempts" %(attempts_cnt))
+        checking_result = check_users_attempts_count(attempts_cnt, user_input)
         if checking_result[1] == True:
             attempts_cnt = checking_result[0]
             break
-        elif checking_result[1] != False:
+        elif checking_result[1] == False:
+            break
+        else:
             print(checking_result[1])
 
-    
     for i in range(1, attempts_cnt + 1):
         attempt = int(input("Your %d attempt is: " %i)) # Have to add additional check for input (isdigit)
         attempt_res = check_attempt(guessing_number, attempt)
@@ -55,7 +57,7 @@ def main():
     else:
         print("Probably you'll win next time, loser xD")
 
-
+"""
 def main():
   print('donuts')
   # Each line calls donuts, compares its result to the expected for that call.
@@ -85,7 +87,7 @@ def main():
   test(mix_up('dog', 'dinner'), 'dig donner')
   test(mix_up('gnash', 'sport'), 'spash gnort')
   test(mix_up('pezzy', 'firm'), 'fizzy perm')
-
+"""
 
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
