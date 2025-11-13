@@ -14,12 +14,26 @@ errors = {1:"Number should be more than 0, less or equal to 10",
 
 # If you're giving up, 
 
-def check_users_input(is_attempt):
+def check_users_input(is_attempt): # should return number between (1 and 100) for True or (1 and 10) for False or 0 for break  
     max_val = max_attempts_cnt
+    break_msg = "to continue with %d attempts" %default_attempts_cnt
     if is_attempt:
         max_val = max_guessing_number_val
+        break_msg = "if you're giving up"
     while True:
-        users_input = input("Enter number between 1 and %d" %max_val)
+        users_input = input("Enter a number (between 1 and %d) or press 'Enter' %s" %(max_val, break_msg))
+        if users_input.isdigit():
+            users_input = int(users_input)
+            if 0 < users_input < max_val:
+                return users_input
+            else:
+                print("Number should be between 1 and %d" %max_val)
+        else:
+            if users_input == "":
+                return 0
+            else:
+                print("You should enter a number")
+
 
     resp_msg = False    # Only for attempts_cnt, means that user selected value by default
     if user_input.isdigit():
