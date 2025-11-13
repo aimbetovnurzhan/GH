@@ -4,8 +4,23 @@ import random as rd
 
 guessing_number = rd.randint(1, 100)
 answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 1: "Little high", 2: "Too high", }
-# errors = {}
+errors = {1:"Number should be more than 0, less or equal to 10",
+          2:"You should enter a number"}
 attempts_cnt = 5
+
+def check_users_input(x, users_input, max):
+    resp_msg = False    # Only for attempts_cnt, means that user selected value by default
+    if user_input.isdigit():
+        users_input = int(users_input)
+        if 0 < users_input <= max:
+            resp_msg = True # User entered correct number
+            attempts_cnt = int(users_input)
+        else:
+            resp_msg = "Number should be more than 0, less or equal to %d max"
+    elif users_input != "":
+        resp_msg = "You should enter a number"
+    return attempts_cnt, resp_msg
+
 
 def check_users_attempts_count(attempts_cnt, user_input):
     resp_msg = False    # Means that user selected value by default
