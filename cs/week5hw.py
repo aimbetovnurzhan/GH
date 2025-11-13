@@ -2,22 +2,35 @@
 
 import random as rd
 
-guessing_number = rd.randint(1, 100)
+default_attempts_cnt = 5
+max_attempts_cnt = 10
+max_guessing_number_val = 100
+guessing_number = rd.randint(1, max_guessing_number_val)
 answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 1: "Little high", 2: "Too high", }
+
+
 errors = {1:"Number should be more than 0, less or equal to 10",
           2:"You should enter a number"}
-attempts_cnt = 5
 
-def check_users_input(x, users_input, max):
+# If you're giving up, 
+
+def check_users_input(is_attempt):
+    max_val = max_attempts_cnt
+    if is_attempt:
+        max_val = max_guessing_number_val
+    while True:
+        users_input = input("Enter number between 1 and %d" %max_val)
+
     resp_msg = False    # Only for attempts_cnt, means that user selected value by default
     if user_input.isdigit():
         users_input = int(users_input)
-        if 0 < users_input <= max:
+        if 0 < users_input <= max_val:
             resp_msg = True # User entered correct number
             attempts_cnt = int(users_input)
         else:
-            resp_msg = "Number should be more than 0, less or equal to %d max"
-    elif users_input != "":
+            resp_msg = "Number should be more than 0 and less than %d" % max_val
+    else:
+        if users_input != "":
         resp_msg = "You should enter a number"
     return attempts_cnt, resp_msg
 
@@ -50,10 +63,11 @@ def check_attempt(guessing_number, attempt): # Function returns code of result
 
 def main():
     print("Welcome to guessing number game, do you want to enter attempts count?")
+    print("Enter attempts count (between 1 and %d) or press enter to continue with %d attempts" %(max_attepts_cnt, default_attempts_cnt))
 
     while True: #checking user input
         global attempts_cnt
-        user_input = input("Enter attempts count (between 1 and 10) or press enter to continue with %d attempts" %(attempts_cnt))
+        user_input = input("Enter attempts count (between 1 and 10) or press enter to continue with %d attempts" %(default_attempts_cnt))
         checking_result = check_users_attempts_count(attempts_cnt, user_input)
         if checking_result[1] == True:
             attempts_cnt = checking_result[0]
