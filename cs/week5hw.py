@@ -8,46 +8,25 @@ max_guessing_number_val = 100
 guessing_number = rd.randint(1, max_guessing_number_val)
 answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 1: "Little high", 2: "Too high", }
 
-
-errors = {1:"Number should be more than 0, less or equal to 10",
-          2:"You should enter a number"}
-
-# If you're giving up, 
-
-def check_users_input(is_attempt): # should return number between (1 and 100) for True or (1 and 10) for False or 0 for break  
+def check_user_input(is_attempt): # should return number between (1 and 100) for True or (1 and 10) for False or 0 for break  
     max_val = max_attempts_cnt
     break_msg = "to continue with %d attempts" %default_attempts_cnt
     if is_attempt:
         max_val = max_guessing_number_val
         break_msg = "if you're giving up"
     while True:
-        users_input = input("Enter a number (between 1 and %d) or press 'Enter' %s" %(max_val, break_msg))
-        if users_input.isdigit():
-            users_input = int(users_input)
-            if 0 < users_input < max_val:
-                return users_input
+        user_input = input("Enter a number (between 1 and %d) or press 'Enter' %s" %(max_val, break_msg))
+        if user_input.isdigit():
+            user_input = int(user_input)
+            if 0 < user_input < max_val:
+                return user_input
             else:
                 print("Number should be between 1 and %d" %max_val)
         else:
-            if users_input == "":
+            if user_input == "":
                 return 0
             else:
                 print("You should enter a number")
-
-
-    resp_msg = False    # Only for attempts_cnt, means that user selected value by default
-    if user_input.isdigit():
-        users_input = int(users_input)
-        if 0 < users_input <= max_val:
-            resp_msg = True # User entered correct number
-            attempts_cnt = int(users_input)
-        else:
-            resp_msg = "Number should be more than 0 and less than %d" % max_val
-    else:
-        if users_input != "":
-        resp_msg = "You should enter a number"
-    return attempts_cnt, resp_msg
-
 
 def check_users_attempts_count(attempts_cnt, user_input):
     resp_msg = False    # Means that user selected value by default
@@ -76,8 +55,11 @@ def check_attempt(guessing_number, attempt): # Function returns code of result
             return 2
 
 def main():
-    print("Welcome to guessing number game, do you want to enter attempts count?")
-    print("Enter attempts count (between 1 and %d) or press enter to continue with %d attempts" %(max_attepts_cnt, default_attempts_cnt))
+    print("Welcome to guessing number game")
+          Enter attempts count (between 1 and %d) or press enter to continue with %d attempts""" %(max_attepts_cnt, default_attempts_cnt))
+    attempts_cnt = check_user_input(False)
+    if attempts_cnt == 0:
+        return "L_user gave up=)"
 
     while True: #checking user input
         global attempts_cnt
