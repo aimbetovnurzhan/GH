@@ -45,6 +45,7 @@ def main():
         elif checking_result[1] != False:
             print(checking_result[1])
 
+    
     for i in range(1, attempts_cnt + 1):
         attempt = int(input("Your %d attempt is: " %i)) # Have to add additional check for input (isdigit)
         attempt_res = check_attempt(guessing_number, attempt)
