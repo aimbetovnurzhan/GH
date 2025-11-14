@@ -7,7 +7,7 @@ default_attempts_cnt = 5
 max_attempts_cnt = 10
 max_guessing_number_val = 100
 guessing_number = rd.randint(1, max_guessing_number_val)
-answers = {-2: "❌ - too Low", -1: "Little low", 0: "✅ - you guessed it, great job", 1: "Little high", 2: "Too high", }
+answers = {-2: "❌ - too Low", -1: "❌ - little low", 0: "✅ - you guessed it, great job", 1: "❌ - little high", 2: "❌ - too high", }
 
 def check_user_input(is_attempt): # returns number in range 0 to 100/10 or 0 (user_exit/defaultval) for True/False.  
     max_val = max_attempts_cnt
