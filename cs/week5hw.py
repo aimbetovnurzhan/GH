@@ -79,20 +79,24 @@ def test_game():
 
     def test_check_user_input_simulated():
         print("\nTesting test_user_input function...\n")
-        inputs = iter(["", "abc", "0", "1", "10", "11", "5", "100", "101"])
-        def fake_input(prompt):
-            print(prompt)
-            a = next(inputs)
-            # print(a)
-            return a
+        inputs = [("abc", None), ("", None), (0, None), 1, 5, (10, None), (11, None), "5", "100", "101"]
+        is_attempt_vals = [True, False]
+        for is_attempt in is_attempt_vals:
+            for i, fake_user_input in enumerate(inputs, start = 1):
+                print(f"🔁 Test #{i} - input: {fake_user_input}")
+                # print(f"\n🔁 Тест #{i+1} — inputs: {input_list}")
 
-        original_input = __builtins__.input
-        __builtins__.input = fake_input
-        try:
-            result = check_user_input(False)  # should return 5
-            print("Result:", result)
-        finally:
-            __builtins__.input = original_input
+                def fake_input(prompt):
+                    print(prompt)
+                    return fake_user_input
+
+                original_input = __builtins__.input
+                __builtins__.input = fake_input
+                try:
+                    result = check_user_input(is_attempt)  # should return 5
+                    print("Result:", result)
+                finally:
+                    __builtins__.input = original_input
 
     def test_main_simulated():
         print("\nTesting main function...\n")
