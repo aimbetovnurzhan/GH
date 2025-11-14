@@ -70,25 +70,38 @@ def test_game():
         ok = "✅ - success"
         err = "❌ - unsucces"
         print("\nTesting check_attempt function...\n")
-        print ("'Too low' test, expected -2, received %d - " %check_attempt(50, 44) + ok if check_attempt(50, 44) == -2 else err)
-        print ("'Little low' test, expected -1, received %d" %check_attempt(50, 45) + ok if check_attempt(50, 45) == -1 else err)
-        print ("'Guessed' test, expected 0, received %d" %check_attempt(50, 50) + ok if check_attempt(50, 50) == 0  else err)
-        print ("'Little high' test, expected 1, received %d" %check_attempt(50, 55) + ok if check_attempt(50, 55) == 1  else err)
-        print ("'Too high' test, expected 2, received %d" %check_attempt(50, 56) + ok if check_attempt(50, 56) == 2  else err)
+        print ("'Too low' test, expected -2, received %d.." %check_attempt(50, 44) + ok if check_attempt(50, 44) == -2 else err)
+        print ("'Little low' test, expected -1, received %d.." %check_attempt(50, 45) + ok if check_attempt(50, 45) == -1 else err)
+        print ("'Guessed' test, expected 0, received %d.." %check_attempt(50, 50) + ok if check_attempt(50, 50) == 0  else err)
+        print ("'Little high' test, expected 1, received %d.." %check_attempt(50, 55) + ok if check_attempt(50, 55) == 1  else err)
+        print ("'Too high' test, expected 2, received %d.." %check_attempt(50, 56) + ok if check_attempt(50, 56) == 2  else err)
         print("✅ Done")
 
     def test_check_user_input_simulated():
-        print("\nTesting test_user_input function...\n")
-        inputs = [("abc", None), ("", None), (0, None), 1, 5, (10, None), (11, None), "5", "100", "101"]
+        import itertools
+        print("\nTesting test_user_input function...")
+        inputs = [
+            [""], 
+            [0, 2],
+            [1],
+            [10],
+            [100, 3],
+            [101, 4],
+            ["abc", 1]
+        ]
         is_attempt_vals = [True, False]
         for is_attempt in is_attempt_vals:
-            for i, fake_user_input in enumerate(inputs, start = 1):
-                print(f"🔁 Test #{i} - input: {fake_user_input}")
-                # print(f"\n🔁 Тест #{i+1} — inputs: {input_list}")
+            print(f"\n🔁 Test with {is_attempt} input value")
+            for i, j in enumerate(inputs, start = 1):
+                preview_iter, fake_user_input = itertools.tee(iter(j))
+                preview = next(preview_iter)
+                print(f"Test #{i} - input: {preview}")
 
                 def fake_input(prompt):
                     print(prompt)
-                    return fake_user_input
+                    a = next(fake_user_input)
+                    print(a)
+                    return str(a)
 
                 original_input = __builtins__.input
                 __builtins__.input = fake_input
