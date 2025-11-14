@@ -17,7 +17,8 @@ def test_game():
         inputs = iter(["", "abc", "0", "1", "10", "11", "5", "100", "101"])  # simulate user inputs
         def fake_input(prompt):
             print(prompt)
-            return next(inputs)
+            a = next(inputs)
+            return a
 
         original_input = __builtins__.input
         __builtins__.input = fake_input
