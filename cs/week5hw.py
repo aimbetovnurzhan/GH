@@ -7,7 +7,7 @@ default_attempts_cnt = 5
 max_attempts_cnt = 10
 max_guessing_number_val = 100
 guessing_number = rd.randint(1, max_guessing_number_val)
-answers = {-2: "Too Low", -1: "Little low", 0: "You guessed it, great job", 1: "Little high", 2: "Too high", }
+answers = {-2: "❌ - too Low", -1: "Little low", 0: "✅ - you guessed it, great job", 1: "Little high", 2: "Too high", }
 
 def check_user_input(is_attempt): # returns number in range 0 to 100/10 or 0 (user_exit/defaultval) for True/False.  
     max_val = max_attempts_cnt
@@ -65,37 +65,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-
-
-
-"""
-def main():
-  print('donuts')
-  # Each line calls donuts, compares its result to the expected for that call.
-  test(donuts(4), 'Number of donuts: 4')
-  test(donuts(9), 'Number of donuts: 9')
-  test(donuts(10), 'Number of donuts: many')
-  test(donuts(99), 'Number of donuts: many')
-
-  print()
-  print('both_ends')
-  test(both_ends('spring'), 'spng')
-  test(both_ends('Hello'), 'Helo')
-  test(both_ends('a'), '')
-  test(both_ends('xyz'), 'xyyz')
-
-
-  print()
-  print('fix_start')
-  test(fix_start('babble'), 'ba**le')
-  test(fix_start('aardvark'), 'a*rdv*rk')
-  test(fix_start('google'), 'goo*le')
-  test(fix_start('donut'), 'donut')
-
-  print()
-  print('mix_up')
-  test(mix_up('mix', 'pod'), 'pox mid')
-  test(mix_up('dog', 'dinner'), 'dig donner')
-  test(mix_up('gnash', 'sport'), 'spash gnort')
-  test(mix_up('pezzy', 'firm'), 'fizzy perm')
-"""
