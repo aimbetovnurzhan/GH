@@ -130,9 +130,9 @@ def test_game():
         finally:
             __builtins__.input = original_input
     
-    # test_check_attempt()
+    test_check_attempt()
     test_check_user_input_simulated()
-    # test_main_simulated()
+    test_main_simulated()
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "test":
