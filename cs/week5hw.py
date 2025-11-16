@@ -3,6 +3,7 @@
 import random as rd
 import sys
 
+
 min_val = 1
 default_attempts_cnt = 5
 max_attempts_cnt = 10
