@@ -47,8 +47,6 @@ def check_attempt(guessing_number, attempt): # Function returns code of result
         else:
             return 2
 
-
-
 def main():
     print("Welcome to guessing number game")
     attempts_cnt = check_user_input(False)
