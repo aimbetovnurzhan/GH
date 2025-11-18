@@ -123,6 +123,7 @@ def test_game():
             print(a)
             return a
 
+
         original_input = __builtins__.input
         __builtins__.input = fake_input
         try:
