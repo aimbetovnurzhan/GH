@@ -41,3 +41,4 @@ fi
 } | tee -a "$LOG_FILE"
 
 echo "---" >> "$LOG_FILE"
+sleep 5
