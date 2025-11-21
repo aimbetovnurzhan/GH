@@ -15,7 +15,7 @@ function newGame() {
   secret = Math.floor(Math.random() * 100) + 1; // 1..100
   tries = 0;
   history = [];
-  hintEl.textContent = "Я загадал число от 1 до 100. Попробуй угадать!";
+  hintEl.textContent = "I thought of a number between 1 and 100. Try to guess!";
   triesEl.textContent = "0";
   historyEl.textContent = "—";
   inputEl.value = "";
@@ -28,7 +28,7 @@ function makeGuess() {
   const val = Number(inputEl.value);
 
   if (!Number.isInteger(val) || val < 1 || val > 100) {
-    hintEl.textContent = "Введите целое число от 1 до 100 🙂";
+    hintEl.textContent = "Enter a number from 1 to 100";
     return;
   }
 
@@ -38,16 +38,24 @@ function makeGuess() {
   historyEl.textContent = history.join(", ");
 
   if (val === secret) {
-    hintEl.textContent = `✅ Угадал! Это ${secret}. Попыток: ${tries}.`;
+    hintEl.textContent = `✅ - you guessed ${secret} in ${tries} attempts, great job.`;
     inputEl.disabled = true;
     guessBtn.disabled = true;
     return;
   }
 
   if (val < secret) {
-    hintEl.textContent = "⬆️ Слишком маленькое. Попробуй больше.";
+    if (secret - val <= 5) {
+        hintEl.textContent = "⬆️ - little low";
+    } else {
+        hintEl.textContent = "⬆️⬆️ - too Low";
+    }
   } else {
-    hintEl.textContent = "⬇️ Слишком большое. Попробуй меньше.";
+    if (val - secret <= 5) {
+        hintEl.textContent = "⬇️ - little high"
+    } else {
+        hintEl.textContent = "⬇️⬇️ - too high.";
+    }
   }
 
   inputEl.select();
