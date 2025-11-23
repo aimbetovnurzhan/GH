@@ -12,11 +12,15 @@ s.listen()
 print("listening...")
 
 while True:
+    i = 1
     conn, addr = s.accept()
-    print("Got connection from ", addr)
-    print("Received msg:", conn.recv(1024).decode())
-    msg = "Thanks for connection "
-    conn.send(msg.encode())
-    print(f"Message {msg} sent at {dt.datetime.now()}")
+    print("Got connection from ", addr, "at %s" % (dt.datetime.now()))
+    rcvmsg = conn.recv(1024).decode()
+    print(f"Received msg #{i}: '{rcvmsg}'")
+    sntmsg = "Thanks for connection"
+    conn.send(sntmsg.encode())
+    print(f"Message '{sntmsg}' sent at {dt.datetime.now()}")
     conn.close()
-    break
+    i += 1
+    if rcvmsg in ("q", "exit"):
+        break
