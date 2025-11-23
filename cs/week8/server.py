@@ -17,4 +17,5 @@ while True:
 
     c.send("Thanks for connection ".encode())
     c.close()
-    
+
+    break
