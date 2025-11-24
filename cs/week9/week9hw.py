@@ -21,7 +21,7 @@ def translate_mymemory(text, source="en", target="ru"):
     data = r.json()
     return data["responseData"]["translatedText"]
 
-print(joke["setup"] + joke["delivery"])
+# print(joke["setup"] + joke["delivery"])
 
 print(translate_mymemory(joke["setup"] + " " + joke["delivery"]))
 
