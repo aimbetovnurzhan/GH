@@ -15,7 +15,7 @@ def translate_mymemory(text, source="en", target="ru"):
     url = "https://api.mymemory.translated.net/get"
     params = {
         "q": text,
-        "langpair": f"{source}|{target}"  # пара языков
+        "langpair": f"{source}|{target}"
     }
     r = requests.get(url, params=params, timeout=10)
     data = r.json()
