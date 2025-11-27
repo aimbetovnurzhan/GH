@@ -23,5 +23,4 @@ def translate_mymemory(text, source="en", target="ru"):
 
 # print(joke["setup"] + joke["delivery"])
 
-
 print(translate_mymemory(joke["setup"] + " " + joke["delivery"]))
