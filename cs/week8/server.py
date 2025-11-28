@@ -39,4 +39,5 @@ while True:
         print(f"'{sntmsg}' sent at {dt.datetime.now()}")
         i += 1
 
+
     conn.close()
