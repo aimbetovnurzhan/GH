@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jokes</title>
-  <script defer src="jokes.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +12,8 @@
     <button onclick="getJoke()">Get a joke</button>
     <p><strong>En:</strong> <span id="original"></span></p>
     <p><strong>Rus:</strong> <span id="translated"></span></p>
-    <button onclick="location.href='index.html'">🔙 Back to menu</button>
+    <button onclick="location.href='index.html'" class="secondary">🔙 Back to menu</button>
   </div>
+  <script src="jokes.js"></script>
 </body>
 </html>

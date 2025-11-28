@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Guess the number</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="card">
+  <div class="card">
     <h1>🎲 Guess the number</h1>
     <p id="hint">I thought of a number between 1 and 100. Try to guess!</p>
 
@@ -25,10 +25,8 @@
       <br/>
       History: <span id="history">—</span>
     </p>
-
-  <button onclick="location.href='index.html'">🔙 Back to menu</button>
-  </main>
-
+    <button onclick="location.href='index.html'" class="secondary">🔙 Back to menu</button>
+  </div>
   <script src="./game.js"></script>
 </body>
 </html>
