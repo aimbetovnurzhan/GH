@@ -4,16 +4,22 @@ async function getJoke() {
   const joke = jokeData.joke || `${jokeData.setup} — ${jokeData.delivery}`;
   document.getElementById("original").textContent = joke;
 
-  const translateRes = await fetch("https://api.mymemory.translated.net/", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      q: joke,
-      source: "en",
-      target: "ru",
-      format: "text"
-    })
-  });
+    async function translate(text, source = "en", target = "ru") {
+    const url = "https://api.mymemory.translated.net/get";
+    const params = new URLSearchParams({
+        q: text,
+        langpair: `${source}|${target}`
+    });
+
+    try {
+        const response = await fetch(`${url}?${params}`);
+        const data = await response.json();
+        return data.responseData.translatedText;
+    } catch (error) {
+        console.error("Ошибка перевода:", error);
+        return "Ошибка";
+    }
+    };
 
   const translated = await translateRes.json();
   document.getElementById("translated").textContent = translated.translatedText || "Translate error";
