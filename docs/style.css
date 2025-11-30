@@ -50,3 +50,8 @@ button.secondary {
   background: #334155;
   color: #e2e8f0;
 }
+
+body.error-bg {
+  background-color: #ffdddd;
+  transition: background-color 0.3s ease;
+}
