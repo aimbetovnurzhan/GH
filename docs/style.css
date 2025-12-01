@@ -56,3 +56,7 @@ body.error-bg {
   transition: background-color 0.3s ease;
 }
 
+body.error-bg {
+  background-color: #ffdddd;
+  transition: background-color 0.3s ease;
+}

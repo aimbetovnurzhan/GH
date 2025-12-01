@@ -24,6 +24,14 @@ function newGame() {
   inputEl.focus();
 }
 
+function flashBackgroundError() {
+  document.body.classList.add('error-bg');
+  setTimeout(() => {
+    document.body.classList.remove('error-bg');
+  }, 1000);
+}
+
+
 function makeGuess() {
   const val = Number(inputEl.value);
 
