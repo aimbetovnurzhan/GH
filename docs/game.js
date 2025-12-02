@@ -51,6 +51,7 @@ function makeGuess() {
     guessBtn.disabled = true;
     return;
   }
+  
 
   if (val < secret) {
     if (secret - val <= 5) {
