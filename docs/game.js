@@ -52,6 +52,7 @@ function makeGuess() {
     return;
   }
 
+  
   if (val < secret) {
     if (secret - val <= 5) {
         hintEl.textContent = "⬆️ - little low";
