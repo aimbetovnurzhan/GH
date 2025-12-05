@@ -31,7 +31,6 @@ function flashBackgroundError() {
   }, 1000);
 }
 
-
 function makeGuess() {
   const val = Number(inputEl.value);
 
