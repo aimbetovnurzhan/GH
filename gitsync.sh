@@ -29,6 +29,7 @@ if [ -n "$(git status --porcelain)" ]; then
         echo "$(date '+%Y-%m-%d_%H:%M:%S'): ОШИБКА при отправке" >> "$LOG_FILE"
     fi
 else
+	echo "Изменений нет"
     echo "$(date '+%Y-%m-%d_%H:%M:%S'): Изменений нет" >> "$LOG_FILE"
 fi
 
