@@ -6,7 +6,6 @@ with socket.socket() as s:
     s.connect((host, port))
     print("Connected to server")
 
-
     while True:
         sntmsg = input("Enter message for sending (q/exit to quit):")
         s.send(sntmsg.encode())
