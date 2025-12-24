@@ -11,7 +11,6 @@ if joke["type"] == "twopart":
 else:
     print(joke["joke"])
 
-
 def translate_mymemory(text, source="en", target="ru"):
     url = "https://api.mymemory.translated.net/get"
     params = {
