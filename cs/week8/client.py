@@ -13,4 +13,5 @@ with socket.socket() as s:
         print("server response:", s.recv(1024).decode())
         if sntmsg in ("exit", "q"):
             break
+
 print("Connection closed")
