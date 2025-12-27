@@ -13,4 +13,13 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0242-valid-anagram](https://github.com/aimbetovnurzhan/GH/tree/master/0242-valid-anagram) |
+| [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
+## Array
+|  |
+| ------- |
+| [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
+## Two Pointers
+|  |
+| ------- |
+| [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
 <!---LeetCode Topics End-->
