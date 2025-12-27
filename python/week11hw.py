@@ -1,5 +1,6 @@
 from random import randint as rd
 
+
 inp_target = rd(1,10)
 inp_list = []
 for i in range (10):
