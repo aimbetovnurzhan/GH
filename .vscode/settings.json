@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:GH}/cs/week9/messages.db",
+            "name": "test"
+        }
+    ]
+}
