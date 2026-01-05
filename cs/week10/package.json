@@ -1,18 +1,19 @@
 {
-  "name": "crossfit-wod-api",
+  "name": "week10",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.11"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.2.1"
   }
 }
