@@ -9,6 +9,12 @@ cd /c/Users/NRG/GH
 
 #echo "Количество коммитов за сегодня:"
 #git log --since=midnight --oneline | wc -l
+if git pull origin main >> "$LOG_FILE" 2>&1; then
+    echo "Pull OK"
+else
+    echo "Pull FAILED"
+    exit 1
+fi
 
 if [ -n "$(git status --porcelain)" ]; then
     if git add . >> "$LOG_FILE" 2>&1; then
