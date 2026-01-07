@@ -38,7 +38,7 @@ fi
   echo "Uniq days with commits:"
   git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
 
-  echo "Today's commit count:"
+  echo "Today's commits count:"
   git log --since=midnight --oneline | wc -l
 } | tee -a "$LOG_FILE"
 
