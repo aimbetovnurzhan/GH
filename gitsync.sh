@@ -4,11 +4,6 @@ LOG_FILE="/c/Users/NRG/Gitlog.txt"
 echo "$(date '+%Y-%m-%d_%H:%M:%S'): запуск" >> "$LOG_FILE"
 cd /c/Users/NRG/GH
 
-#echo "Количество уникальных дней с коммитами:"
-#git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
-
-#echo "Количество коммитов за сегодня:"
-#git log --since=midnight --oneline | wc -l
 if git pull origin main >> "$LOG_FILE" 2>&1; then
     echo "Pull OK"
 else
@@ -18,32 +13,32 @@ fi
 
 if [ -n "$(git status --porcelain)" ]; then
     if git add . >> "$LOG_FILE" 2>&1; then
-        echo "Файлы добавлены"
+        echo "Files added"
     else
-        echo "ОШИБКА при git add" >> "$LOG_FILE"
+        echo "Git add error" >> "$LOG_FILE"
         exit 1
     fi
     if git commit -m "$(date '+%Y-%m-%d_%H:%M:%S')" >> "$LOG_FILE" 2>&1; then
-        echo "Коммит создан"
+        echo "Commit created"
     else
-        echo "ОШИБКА при создании коммита" >> "$LOG_FILE"
+        echo "Commit creation error" >> "$LOG_FILE"
         exit 1
     fi
     if git push origin main >> "$LOG_FILE" 2>&1; then
-        echo "$(date '+%Y-%m-%d_%H:%M:%S'): Изменения отправлены в GitHub" >> "$LOG_FILE"
+        echo "$(date '+%Y-%m-%d_%H:%M:%S'): Changes Pushed to GitHub" >> "$LOG_FILE"
     else
-        echo "$(date '+%Y-%m-%d_%H:%M:%S'): ОШИБКА при отправке" >> "$LOG_FILE"
+        echo "$(date '+%Y-%m-%d_%H:%M:%S'): Pushing error" >> "$LOG_FILE"
     fi
 else
-	echo "Изменений нет"
-    echo "$(date '+%Y-%m-%d_%H:%M:%S'): Изменений нет" >> "$LOG_FILE"
+	echo "No changes"
+    echo "$(date '+%Y-%m-%d_%H:%M:%S'): No changes" >> "$LOG_FILE"
 fi
 
 {
-  echo "Количество уникальных дней с коммитами:"
+  echo "Uniq days with commits:"
   git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
 
-  echo "Количество коммитов за сегодня:"
+  echo "Today's commit count:"
   git log --since=midnight --oneline | wc -l
 } | tee -a "$LOG_FILE"
 
