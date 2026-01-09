@@ -60,7 +60,7 @@ fi
 
   echo "Today's commits count:"
   git log --since=midnight --oneline | wc -l
-  echo "------------------------------------"
+  echo "--------------------------------------------"
 } | tee -a "$LOG_FILE"
 
-sleep 10
+sleep 5
