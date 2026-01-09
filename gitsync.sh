@@ -1,38 +1,57 @@
 #!/bin/bash
 set -euo pipefail
 LOG_FILE="/c/Users/NRG/Gitlog.txt"
-echo "------------------------------------" >> "$LOG_FILE"
-echo "$(date '+%Y-%m-%d_%H:%M:%S') - started" >> "$LOG_FILE"
+
+# ---------- Ротация логов по размеру ----------
+MAX_SIZE=500000   # 500 KB
+
+if [ -f "$LOG_FILE" ]; then
+    FILE_SIZE=$(stat -c%s "$LOG_FILE")
+    if [ "$FILE_SIZE" -gt "$MAX_SIZE" ]; then
+        mv "$LOG_FILE" "${LOG_FILE}.1"
+        touch "$LOG_FILE"
+    fi
+fi
+
+# ---------- Цветные функции ----------
+red()    { echo -e "\e[31m$1\e[0m"; }
+green()  { echo -e "\e[32m$1\e[0m"; }
+
+# ---------- Логирование ----------
+log() {
+    echo "$1" | tee -a "$LOG_FILE"
+}
+
+log "$(date '+%Y-%m-%d_%H:%M:%S') - started"
 cd /c/Users/NRG/GH
 
 if git pull origin main >> "$LOG_FILE" 2>&1; then
-    echo "Pull OK"
+    green "Pull OK"
 else
-    echo "Pull FAILED"
+    red "Pull FAILED"
     exit 1
 fi
 
 if [ -n "$(git status --porcelain)" ]; then
     if git add . >> "$LOG_FILE" 2>&1; then
-        echo "Files added"
+        green "Files added"
     else
-        echo "Git add error" >> "$LOG_FILE"
+        red "Git add error"
         exit 1
     fi
     if git commit -m "$(date '+%Y-%m-%d_%H:%M:%S')" >> "$LOG_FILE" 2>&1; then
-        echo "Commit created"
+        green "Commit created"
     else
-        echo "Commit creation error" >> "$LOG_FILE"
+        red "Commit creation error"
         exit 1
     fi
     if git push origin main >> "$LOG_FILE" 2>&1; then
-        echo "$(date '+%Y-%m-%d_%H:%M:%S'): Changes Pushed to GitHub" >> "$LOG_FILE"
+        green "Changes Pushed to GitHub"
     else
-        echo "$(date '+%Y-%m-%d_%H:%M:%S'): Pushing error" >> "$LOG_FILE"
+        red "Pushing ended with error"
     fi
 else
-	echo "No changes"
-    echo "$(date '+%Y-%m-%d_%H:%M:%S'): No changes" >> "$LOG_FILE"
+    log "$(date '+%Y-%m-%d_%H:%M:%S'): No changes"
 fi
 
 {
@@ -41,6 +60,7 @@ fi
 
   echo "Today's commits count:"
   git log --since=midnight --oneline | wc -l
+  echo "------------------------------------"
 } | tee -a "$LOG_FILE"
 
 sleep 5
