@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 LOG_FILE="/c/Users/NRG/Gitlog.txt"
-echo "$(date '+%Y-%m-%d_%H:%M:%S'): запуск" >> "$LOG_FILE"
+echo "------------------------------------" >> "$LOG_FILE"
+echo "$(date '+%Y-%m-%d_%H:%M:%S') - started" >> "$LOG_FILE"
 cd /c/Users/NRG/GH
 
 if git pull origin main >> "$LOG_FILE" 2>&1; then
@@ -42,5 +43,4 @@ fi
   git log --since=midnight --oneline | wc -l
 } | tee -a "$LOG_FILE"
 
-echo "---" >> "$LOG_FILE"
 sleep 5
