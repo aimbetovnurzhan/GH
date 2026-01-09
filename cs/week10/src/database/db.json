@@ -107,6 +107,28 @@
       ],
       "createdAt": "1/6/2026, 11:37:46 PM",
       "updatedAt": "1/6/2026, 11:37:46 PM"
+    },
+    {
+      "id": "faa9668e-128c-49ac-8ecf-b8a965b7d207",
+      "name": "Core Buster2",
+      "mode": "AMRAP 20",
+      "equipment": [
+        "rack",
+        "barbell",
+        "abmat"
+      ],
+      "exercises": [
+        "15 toes to bars",
+        "10 thrusters",
+        "30 abmat sit-ups"
+      ],
+      "trainerTips": [
+        "Split your toes to bars into two sets maximum",
+        "Go unbroken on the thrusters",
+        "Take the abmat sit-ups as a chance to normalize your breath"
+      ],
+      "createdAt": "1/9/2026, 8:33:05 PM",
+      "updatedAt": "1/9/2026, 8:33:05 PM"
     }
   ]
 }
