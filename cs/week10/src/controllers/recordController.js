@@ -1,6 +1,6 @@
 const recordService = require("../services/recordService");
 
-const getRecordForWorkout = (req, res) => {
+const getRecordForWorkout = async (req, res) => {
   const {
     params: { workoutId },
   } = req;
@@ -16,7 +16,7 @@ const getRecordForWorkout = (req, res) => {
   }
 
   try {
-    const record = recordService.getRecordForWorkout(workoutId);
+    const record = await recordService.getRecordForWorkout(workoutId);
     res.send({ status: "OK", data: record });
   } catch (error) {
     res
