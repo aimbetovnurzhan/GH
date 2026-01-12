@@ -1,9 +1,9 @@
 const workoutService = require("../services/workoutService");
 
-const getAllWorkouts = (req, res) => {
+const getAllWorkouts = async (req, res) => {
     const { mode } = req.query;
     try {
-        const allWorkouts = workoutService.getAllWorkouts({ mode });
+        const allWorkouts = await workoutService.getAllWorkouts({ mode });
         res.send({ status: "OK", data: allWorkouts });
     } catch (error) {
     res
@@ -12,7 +12,7 @@ const getAllWorkouts = (req, res) => {
     }
 };
 
-const getOneWorkout = (req, res) => {
+const getOneWorkout = async (req, res) => {
   const {
     params: { workoutId },
   } = req;
@@ -26,7 +26,7 @@ const getOneWorkout = (req, res) => {
       return;
   }
   try {
-    const workout = workoutService.getOneWorkout(workoutId);
+    const workout = await workoutService.getOneWorkout(workoutId);
     res.send({ status: "OK", data: workout });
   } catch (error) {
     res
@@ -35,7 +35,7 @@ const getOneWorkout = (req, res) => {
   }
 };
 
-const createNewWorkout = (req, res) => {
+const createNewWorkout = async (req, res) => {
   const { body } = req;
   if (
     !body.name ||
@@ -63,7 +63,7 @@ const createNewWorkout = (req, res) => {
     trainerTips: body.trainerTips,
   };
   try {
-    const createdWorkout = workoutService.createNewWorkout(newWorkout);
+    const createdWorkout = await workoutService.createNewWorkout(newWorkout);
     res.status(201).send({ status: "OK", data: createdWorkout });
   } catch (error) {
     res
@@ -72,7 +72,7 @@ const createNewWorkout = (req, res) => {
   }
 };
 
-const updateOneWorkout = (req, res) => {
+const updateOneWorkout = async (req, res) => {
   const {
     body,
     params: { workoutId },
@@ -84,9 +84,10 @@ const updateOneWorkout = (req, res) => {
         status: "FAILED",
         data: { error: "Parameter ':workoutId' can not be empty" },
       });
+    return;
   }
   try {
-    const updatedWorkout = workoutService.updateOneWorkout(workoutId, body);
+    const updatedWorkout = await workoutService.updateOneWorkout(workoutId, body);
     res.send({ status: "OK", data: updatedWorkout });
   } catch (error) {
     res
@@ -95,7 +96,7 @@ const updateOneWorkout = (req, res) => {
   }
 };
 
-const deleteOneWorkout = (req, res) => {
+const deleteOneWorkout = async (req, res) => {
   const {
     params: { workoutId },
   } = req;
@@ -106,9 +107,10 @@ const deleteOneWorkout = (req, res) => {
         status: "FAILED",
         data: { error: "Parameter ':workoutId' can not be empty" },
       });
+    return;
   }
   try {
-    workoutService.deleteOneWorkout(workoutId);
+    await workoutService.deleteOneWorkout(workoutId);
     res.status(204).send({ status: "OK" });
   } catch (error) {
     res

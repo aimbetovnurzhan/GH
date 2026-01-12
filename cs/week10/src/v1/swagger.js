@@ -10,6 +10,9 @@ const options = {
   apis: ["./src/v1/routes/workoutRoutes.js","./src/v1/swagger.js"],
 };
 
+// Docs in JSON format
+const swaggerSpec = swaggerJSDoc(options);
+
 /**
  * @openapi
  * components:
@@ -82,9 +85,6 @@ const options = {
  *           type: string
  *           example: "2024-01-01T12:00:00Z"
  */
-
-// Docs in JSON format
-const swaggerSpec = swaggerJSDoc(options);
 
 // Function to setup our docs
 const swaggerDocs = (app, port) => {
