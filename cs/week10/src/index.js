@@ -14,6 +14,7 @@ app.get("/", (req,res) => {
     res.send(`<h2>It's working!</h2>`);
 });
 
+
 app.use(bodyParser.json());
 app.use(cache("2 minutes"));
 app.use("/api/v1/workouts", v1WorkoutRouter);
