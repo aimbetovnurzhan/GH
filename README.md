@@ -22,4 +22,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
+## Math
+|  |
+| ------- |
+| [0009-palindrome-number](https://github.com/aimbetovnurzhan/GH/tree/master/0009-palindrome-number) |
 <!---LeetCode Topics End-->
