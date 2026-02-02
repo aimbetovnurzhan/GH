@@ -13,6 +13,6 @@ class Solution:
                     res = False
             elif len(stack) == 0:
                 stack.append(chr)
-        if len(stack) != 0:
+        if stack:
             res = False
         return res
