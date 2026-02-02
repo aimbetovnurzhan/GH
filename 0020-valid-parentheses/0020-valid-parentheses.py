@@ -7,7 +7,7 @@ class Solution:
         for chr in inp:
             if br.get(chr) > 0:
                 stack.append(chr)
-            elif len(stack) > 0:
+            elif stack:
                 dl = stack.pop()
                 if br.get(dl) + br.get(chr) != 0:
                     res = False
