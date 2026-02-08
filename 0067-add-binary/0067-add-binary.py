@@ -21,6 +21,6 @@ class Solution(object):
                         mx.append(int(mx[k]) // 2)
                 mx[k] = int(mx[k]) % 2
         if len(mx) == k + 2 and int(mx[k+1]) // 2 > 0:
-            mx[k + 1] = int(mx[k + 1]) % 2
             mx.append(int(mx[k + 1]) // 2)
+            mx[k + 1] = int(mx[k + 1]) % 2
         return "".join(map(str,mx[::-1]))
