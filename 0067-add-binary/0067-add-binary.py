@@ -1,13 +1,11 @@
 class Solution(object):
     def addBinary(self, a, b):
         mx, mn = list(a[::-1]), list(b[::-1])
-        i, j = len(a), len(b)
         if len(b) >= len(a):
             mx, mn = mn, mx
-            i, j = j, i
-        for k in range(i):
-            if k < j:
-                if k+1 < i:
+        for k in range(len(mx)):
+            if k < len(mn):
+                if k+1 < len(mx):
                     mx[k + 1] = (int(mx[k + 1]) + (int(mx[k]) + int(mn[k])) // 2)
                 else:
                     if (int(mx[k]) + int(mn[k])) // 2 > 0:
@@ -15,7 +13,7 @@ class Solution(object):
                 mx[k] = (int(mx[k]) + int(mn[k])) % 2
             else:
                 if int(mx[k]) // 2 > 0:
-                    if k+1 < i:
+                    if k+1 < len(mx):
                         mx[k + 1] = int(mx[k + 1]) + int(mx[k]) // 2
                     else:
                         mx.append(int(mx[k]) // 2)
