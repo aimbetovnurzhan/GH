@@ -1,12 +1,11 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Map < Integer, Integer> dct = new HashMap<>();
-        boolean flag = false;
+        HashSet < Integer> dct = new HashSet<>();
         for (int n: nums) {
-            if (dct.getOrDefault(n, 0) > 0) {
-                flag = true;
+            if (dct.contains(n)) {
+                return true;
             } else {
-                dct.put(n, 1);
+                dct.add(n);
             }
             // int index = Arrays.binarySearch(Arrays.copyOfRange(nums, i + 1, nums.length), nums[i]);
             // System.out.println(Arrays.toString(Arrays.copyOfRange(nums, i + 1, nums.length)));
@@ -16,6 +15,6 @@ class Solution {
             //     flag = true;
             // }
         }
-        return flag;
+        return false;
     }
 }
