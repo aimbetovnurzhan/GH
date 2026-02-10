@@ -6,6 +6,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0001-two-sum](https://github.com/aimbetovnurzhan/GH/tree/master/0001-two-sum) |
 | [0013-roman-to-integer](https://github.com/aimbetovnurzhan/GH/tree/master/0013-roman-to-integer) |
+| [0217-contains-duplicate](https://github.com/aimbetovnurzhan/GH/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/aimbetovnurzhan/GH/tree/master/0242-valid-anagram) |
 ## String
 |  |
@@ -19,6 +20,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Sorting
 |  |
 | ------- |
+| [0217-contains-duplicate](https://github.com/aimbetovnurzhan/GH/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/aimbetovnurzhan/GH/tree/master/0242-valid-anagram) |
 | [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
 ## Array
@@ -30,6 +32,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0027-remove-element](https://github.com/aimbetovnurzhan/GH/tree/master/0027-remove-element) |
 | [0035-search-insert-position](https://github.com/aimbetovnurzhan/GH/tree/master/0035-search-insert-position) |
 | [0066-plus-one](https://github.com/aimbetovnurzhan/GH/tree/master/0066-plus-one) |
+| [0217-contains-duplicate](https://github.com/aimbetovnurzhan/GH/tree/master/0217-contains-duplicate) |
 | [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
 ## Two Pointers
 |  |
