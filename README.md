@@ -8,6 +8,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0013-roman-to-integer](https://github.com/aimbetovnurzhan/GH/tree/master/0013-roman-to-integer) |
 | [0217-contains-duplicate](https://github.com/aimbetovnurzhan/GH/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/aimbetovnurzhan/GH/tree/master/0242-valid-anagram) |
+| [0268-missing-number](https://github.com/aimbetovnurzhan/GH/tree/master/0268-missing-number) |
 ## String
 |  |
 | ------- |
@@ -22,6 +23,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0217-contains-duplicate](https://github.com/aimbetovnurzhan/GH/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/aimbetovnurzhan/GH/tree/master/0242-valid-anagram) |
+| [0268-missing-number](https://github.com/aimbetovnurzhan/GH/tree/master/0268-missing-number) |
 | [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
 ## Array
 |  |
@@ -33,6 +35,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0035-search-insert-position](https://github.com/aimbetovnurzhan/GH/tree/master/0035-search-insert-position) |
 | [0066-plus-one](https://github.com/aimbetovnurzhan/GH/tree/master/0066-plus-one) |
 | [0217-contains-duplicate](https://github.com/aimbetovnurzhan/GH/tree/master/0217-contains-duplicate) |
+| [0268-missing-number](https://github.com/aimbetovnurzhan/GH/tree/master/0268-missing-number) |
 | [0977-squares-of-a-sorted-array](https://github.com/aimbetovnurzhan/GH/tree/master/0977-squares-of-a-sorted-array) |
 ## Two Pointers
 |  |
@@ -48,6 +51,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0013-roman-to-integer](https://github.com/aimbetovnurzhan/GH/tree/master/0013-roman-to-integer) |
 | [0066-plus-one](https://github.com/aimbetovnurzhan/GH/tree/master/0066-plus-one) |
 | [0067-add-binary](https://github.com/aimbetovnurzhan/GH/tree/master/0067-add-binary) |
+| [0268-missing-number](https://github.com/aimbetovnurzhan/GH/tree/master/0268-missing-number) |
 ## Trie
 |  |
 | ------- |
@@ -64,10 +68,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0035-search-insert-position](https://github.com/aimbetovnurzhan/GH/tree/master/0035-search-insert-position) |
+| [0268-missing-number](https://github.com/aimbetovnurzhan/GH/tree/master/0268-missing-number) |
 ## Bit Manipulation
 |  |
 | ------- |
 | [0067-add-binary](https://github.com/aimbetovnurzhan/GH/tree/master/0067-add-binary) |
+| [0268-missing-number](https://github.com/aimbetovnurzhan/GH/tree/master/0268-missing-number) |
 ## Simulation
 |  |
 | ------- |
