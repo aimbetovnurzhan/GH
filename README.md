@@ -90,4 +90,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [2022-convert-1d-array-into-2d-array](https://github.com/aimbetovnurzhan/GH/tree/master/2022-convert-1d-array-into-2d-array) |
+## Linked List
+|  |
+| ------- |
+| [0021-merge-two-sorted-lists](https://github.com/aimbetovnurzhan/GH/tree/master/0021-merge-two-sorted-lists) |
+## Recursion
+|  |
+| ------- |
+| [0021-merge-two-sorted-lists](https://github.com/aimbetovnurzhan/GH/tree/master/0021-merge-two-sorted-lists) |
 <!---LeetCode Topics End-->
