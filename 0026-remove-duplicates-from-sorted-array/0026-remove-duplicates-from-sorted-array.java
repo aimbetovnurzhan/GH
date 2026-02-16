@@ -11,7 +11,6 @@ class Solution {
                     nums[i] = 101;
                 }
                 k ++;
-                i = k;
             }
             i ++;
         }
