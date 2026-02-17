@@ -1,6 +1,7 @@
 class Solution {
     public int mySqrt(int x) {
         if (x > 1) {
+        // long bgn = x; 
         long bgn = 0; 
         long end = x;
         // for (int i = 0; i < (String.valueOf(x).length() + 1) / 2; i++) {
