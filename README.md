@@ -157,4 +157,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0176-second-highest-salary](https://github.com/aimbetovnurzhan/GH/tree/master/0176-second-highest-salary) |
 | [0181-employees-earning-more-than-their-managers](https://github.com/aimbetovnurzhan/GH/tree/master/0181-employees-earning-more-than-their-managers) |
 | [0185-department-top-three-salaries](https://github.com/aimbetovnurzhan/GH/tree/master/0185-department-top-three-salaries) |
+| [0262-trips-and-users](https://github.com/aimbetovnurzhan/GH/tree/master/0262-trips-and-users) |
 <!---LeetCode Topics End-->
