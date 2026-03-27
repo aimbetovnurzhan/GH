@@ -89,11 +89,24 @@ else
 fi
 
 
+# ---------- Статистика GH ----------
+cd /c/Users/NRG/GH
 {
-  echo "Uniq days with commits:"
+  echo "GH: Uniq days with commits:"
   git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
 
-  echo "Today's commits count:"
+  echo "GH: Today's commits count:"
+  git log --since=midnight --oneline | wc -l
+  echo "--------------------------------------------"
+} | tee -a "$LOG_FILE"
+
+# ---------- Статистика LMS ----------
+cd /c/Users/NRG/LMS
+{
+  echo "LMS: Uniq days with commits:"
+  git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
+
+  echo "LMS: Today's commits count:"
   git log --since=midnight --oneline | wc -l
   echo "--------------------------------------------"
 } | tee -a "$LOG_FILE"
