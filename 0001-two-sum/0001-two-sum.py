@@ -4,7 +4,7 @@ class Solution:
             # for j in range(i+1,len(nums)):
                 # if nums[i] + nums[j] == target:
                     # return [i, j]
-        i=0
+        i = 0
         while i < len(nums):
             try:
                 j = nums.index(target - nums[i])
