@@ -24,91 +24,67 @@ log() {
 
 log "$(date '+%Y-%m-%d_%H:%M:%S') - started"
 
-# ---------- Репозиторий GH ----------
-cd /c/Users/NRG/GH
+# ---------- Универсальная функция ----------
+process_repo() {
+    local path=$1
+    local name=$2
+    local branch=$3
 
-if git pull origin main >> "$LOG_FILE" 2>&1; then
-    green "GH: Pull OK"
-else
-    red "GH: Pull FAILED"
-    exit 1
-fi
+    cd "$path"
 
-if [ -n "$(git status --porcelain)" ]; then
-    if git add . >> "$LOG_FILE" 2>&1; then
-        green "GH: Files added"
+    if git pull origin "$branch" >> "$LOG_FILE" 2>&1; then
+        green "$name: Pull OK"
     else
-        red "GH: Git add error"
+        red "$name: Pull FAILED"
         exit 1
     fi
-    if git commit -m "$(date '+%Y-%m-%d_%H:%M:%S')" >> "$LOG_FILE" 2>&1; then
-        green "GH: Commit created"
+
+    if [ -n "$(git status --porcelain)" ]; then
+        if git add . >> "$LOG_FILE" 2>&1; then
+            green "$name: Files added"
+        else
+            red "$name: Git add error"
+            exit 1
+        fi
+        if git commit -m "$(date '+%Y-%m-%d_%H:%M:%S')" >> "$LOG_FILE" 2>&1; then
+            green "$name: Commit created"
+        else
+            red "$name: Commit creation error"
+            exit 1
+        fi
+        if git push origin "$branch" >> "$LOG_FILE" 2>&1; then
+            green "$name: Changes Pushed to GitHub"
+        else
+            red "$name: Pushing ended with error"
+        fi
     else
-        red "GH: Commit creation error"
-        exit 1
+        log "$(date '+%Y-%m-%d_%H:%M:%S'): $name: No changes"
     fi
-    if git push origin main >> "$LOG_FILE" 2>&1; then
-        green "GH: Changes Pushed to GitHub"
-    else
-        red "GH: Pushing ended with error"
-    fi
-else
-    log "$(date '+%Y-%m-%d_%H:%M:%S'): GH: No changes"
-fi
+}
 
-# ---------- Репозиторий LMS ----------
-cd /c/Users/NRG/LMS
+# ---------- Репозитории ----------
+process_repo "/c/Users/NRG/GH" "GH" "main"
+process_repo "/c/Users/NRG/LMS" "LMS" "main"
+process_repo "/c/Users/NRG/LC" "LC" "main"
 
-if git pull origin main >> "$LOG_FILE" 2>&1; then
-    green "LMS: Pull OK"
-else
-    red "LMS: Pull FAILED"
-    exit 1
-fi
+# ---------- Статистика ----------
+stats_repo() {
+    local path=$1
+    local name=$2
 
-if [ -n "$(git status --porcelain)" ]; then
-    if git add . >> "$LOG_FILE" 2>&1; then
-        green "LMS: Files added"
-    else
-        red "LMS: Git add error"
-        exit 1
-    fi
-    if git commit -m "$(date '+%Y-%m-%d_%H:%M:%S')" >> "$LOG_FILE" 2>&1; then
-        green "LMS: Commit created"
-    else
-        red "LMS: Commit creation error"
-        exit 1
-    fi
-    if git push origin main >> "$LOG_FILE" 2>&1; then
-        green "LMS: Changes Pushed to GitHub"
-    else
-        red "LMS: Pushing ended with error"
-    fi
-else
-    log "$(date '+%Y-%m-%d_%H:%M:%S'): LMS: No changes"
-fi
+    cd "$path"
+    {
+      echo "$name: Uniq days with commits:"
+      git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
 
+      echo "$name: Today's commits count:"
+      git log --since=midnight --oneline | wc -l
+      echo "--------------------------------------------"
+    } | tee -a "$LOG_FILE"
+}
 
-# ---------- Статистика GH ----------
-cd /c/Users/NRG/GH
-{
-  echo "GH: Uniq days with commits:"
-  git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
-
-  echo "GH: Today's commits count:"
-  git log --since=midnight --oneline | wc -l
-  echo "--------------------------------------------"
-} | tee -a "$LOG_FILE"
-
-# ---------- Статистика LMS ----------
-cd /c/Users/NRG/LMS
-{
-  echo "LMS: Uniq days with commits:"
-  git log --since="1 year ago" --format="%ad" --date=short | sort -u | wc -l
-
-  echo "LMS: Today's commits count:"
-  git log --since=midnight --oneline | wc -l
-  echo "--------------------------------------------"
-} | tee -a "$LOG_FILE"
+stats_repo "/c/Users/NRG/GH" "GH"
+stats_repo "/c/Users/NRG/LMS" "LMS"
+stats_repo "/c/Users/NRG/LC" "LC"
 
 sleep 5
